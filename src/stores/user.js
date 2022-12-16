@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware'
 import themes from "../styles/themes"
-import { Auth } from 'aws-amplify';
+//import { Auth } from 'aws-amplify';
 
 // session store with redux devtools log
 const useUserStore = create(
@@ -15,7 +15,8 @@ const useUserStore = create(
                 //? temporal object to use in functions
                 temp: {},
                 // local user preferences
-                prefs: {theme: themes.dark},
+                prefs: {theme: themes.dark, color: false},
+                /*
                 // get the current authentificated user in cognito
                 getUser: async () => {
                     const res = await Auth.currentAuthenticatedUser()
@@ -99,6 +100,7 @@ const useUserStore = create(
                 forgotPasswordSubmit: async (email, password, code) => {
                     const res = await Auth.forgotPasswordSubmit(email, code, password)
                 },
+                */
 /* -------------------------------------------------------------------------- */
             }),
             {

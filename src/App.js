@@ -1,10 +1,13 @@
-import { Card } from "@mui/material"
+import { Container, Paper } from "@mui/material";
+import MessageButtons from "./MessageButtons"
 
 function App() {
   return (
-    <Card>
-      
-    </Card>
+    <Container maxWidth="sm">
+      <Paper>
+        <MessageButtons/>
+      </Paper>
+    </Container>
   );
 }
 
