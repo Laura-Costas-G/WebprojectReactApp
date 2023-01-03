@@ -77,7 +77,7 @@ const Board = () => {
           <div className="profile">
             <div className="profile-avatar">
               <Avatar alt="User profile" src="" sx={{ width: 150, height: 150 }} className="profile-img" />
-              <div className="profile-name">Quan Ha</div>
+              <div className="profile-name">UserName</div>
             </div>
             {/** banner w:1112px 100% h:256.4px 100% */}
             <img src="https://images.unsplash.com/photo-1508247967583-7d982ea01526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" className="profile-cover" />
