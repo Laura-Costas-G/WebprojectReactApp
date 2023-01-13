@@ -1,5 +1,5 @@
 projects:
-  WebprojectAPI:
+  webprojectreactapp:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
@@ -10,9 +10,6 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: src/graphql
-        region: eu-west-3
-        apiId: ybe2k5ps2zbsfkc5iffh23mylm
-        maxDepth: 2
 extensions:
   amplify:
     version: 3

@@ -2,8 +2,11 @@
 // this is an auto generated file. This will be overwritten
 
 export const createMain = /* GraphQL */ `
-  mutation CreateMain($input: CreateMainInput!) {
-    createMain(input: $input) {
+  mutation CreateMain(
+    $input: CreateMainInput!
+    $condition: ModelMainConditionInput
+  ) {
+    createMain(input: $input, condition: $condition) {
       GSIPK
       GSISK
       id
@@ -12,14 +15,17 @@ export const createMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;
 export const updateMain = /* GraphQL */ `
-  mutation UpdateMain($input: UpdateMainInput!) {
-    updateMain(input: $input) {
+  mutation UpdateMain(
+    $input: UpdateMainInput!
+    $condition: ModelMainConditionInput
+  ) {
+    updateMain(input: $input, condition: $condition) {
       GSIPK
       GSISK
       id
@@ -28,14 +34,17 @@ export const updateMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;
 export const deleteMain = /* GraphQL */ `
-  mutation DeleteMain($input: DeleteMainInput!) {
-    deleteMain(input: $input) {
+  mutation DeleteMain(
+    $input: DeleteMainInput!
+    $condition: ModelMainConditionInput
+  ) {
+    deleteMain(input: $input, condition: $condition) {
       GSIPK
       GSISK
       id
@@ -44,8 +53,8 @@ export const deleteMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;

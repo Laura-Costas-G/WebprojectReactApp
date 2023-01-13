@@ -2,13 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateMain = /* GraphQL */ `
-  subscription OnCreateMain(
-    $GSIPK: String
-    $GSISK: String
-    $id: String
-    $type: String
-  ) {
-    onCreateMain(GSIPK: $GSIPK, GSISK: $GSISK, id: $id, type: $type) {
+  subscription OnCreateMain($filter: ModelSubscriptionMainFilterInput) {
+    onCreateMain(filter: $filter) {
       GSIPK
       GSISK
       id
@@ -17,19 +12,14 @@ export const onCreateMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;
 export const onUpdateMain = /* GraphQL */ `
-  subscription OnUpdateMain(
-    $GSIPK: String
-    $GSISK: String
-    $id: String
-    $type: String
-  ) {
-    onUpdateMain(GSIPK: $GSIPK, GSISK: $GSISK, id: $id, type: $type) {
+  subscription OnUpdateMain($filter: ModelSubscriptionMainFilterInput) {
+    onUpdateMain(filter: $filter) {
       GSIPK
       GSISK
       id
@@ -38,19 +28,14 @@ export const onUpdateMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;
 export const onDeleteMain = /* GraphQL */ `
-  subscription OnDeleteMain(
-    $GSIPK: String
-    $GSISK: String
-    $id: String
-    $type: String
-  ) {
-    onDeleteMain(GSIPK: $GSIPK, GSISK: $GSISK, id: $id, type: $type) {
+  subscription OnDeleteMain($filter: ModelSubscriptionMainFilterInput) {
+    onDeleteMain(filter: $filter) {
       GSIPK
       GSISK
       id
@@ -59,8 +44,8 @@ export const onDeleteMain = /* GraphQL */ `
       text
       email
       name
-      createdAt
-      updatedAt
+      createdOn
+      updatedOn
     }
   }
 `;
