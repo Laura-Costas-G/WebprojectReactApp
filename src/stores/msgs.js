@@ -30,7 +30,8 @@ const useMsgsStore = create(
                         });
                         return await res.value
                     }catch(e){
-                        console.warn(e.message)
+                        console.warn("MsgsStore: "+e.message)
+                        return null
                     }
                 },
                 // get messages

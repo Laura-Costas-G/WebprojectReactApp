@@ -71,6 +71,7 @@ const useUserStore = create(
                 // confirm email with code
                 confirmSignUp: async (email, code) => {
                     const res = await Auth.confirmSignUp(email.toLowerCase(), code)
+                    return res
                 },
                 // change password when temporal password was assigned by admin
                 setUserPassword: async (password) => {
