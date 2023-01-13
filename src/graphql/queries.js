@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const getMain = /* GraphQL */ `
-  query GetMain($id: ID!) {
-    getMain(id: $id) {
+  query GetMain($type: ID!, $id: ID!) {
+    getMain(type: $type, id: $id) {
       GSIPK
       GSISK
       id
@@ -19,11 +19,21 @@ export const getMain = /* GraphQL */ `
 `;
 export const listMains = /* GraphQL */ `
   query ListMains(
+    $type: ID
+    $id: ModelIDKeyConditionInput
     $filter: ModelMainFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listMains(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMains(
+      type: $type
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         GSIPK
         GSISK

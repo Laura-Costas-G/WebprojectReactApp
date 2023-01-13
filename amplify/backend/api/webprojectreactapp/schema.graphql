@@ -5,8 +5,8 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 type Main @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" }) {
 	GSIPK: String
 	GSISK: String
-	id: String!
-	type: String!
+	id: ID!
+	type: ID!  @primaryKey(sortKeyFields: ["id"])
 	author: String
 	text: String
 	email: String
