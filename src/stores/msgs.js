@@ -4,6 +4,7 @@ import * as mutations from '../graphql/mutations';
 import { ulid } from 'ulid'
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware'
+import useUserStore from './user';
 
 // session store with redux devtools log
 const useMsgsStore = create(
@@ -57,16 +58,15 @@ const useMsgsStore = create(
                     }
                 },
                 // send message
-                postMsg: async (userID, text) => {
+                postMsg: async (text) => {
                     const res = await API.graphql({ 
                         query: mutations.createMain, 
                         variables: {
                             input: {
                                 type: "MSG",
                                 id: ulid()+"",
-                                author: userID,
-                                text: text,
-                                createdAt: new Date().getTime().toString()
+                                author: useUserStore.getState().session.name || useUserStore.getState().session.email,
+                                text: text
                             }
                         }
                     })

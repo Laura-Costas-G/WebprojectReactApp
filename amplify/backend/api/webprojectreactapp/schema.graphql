@@ -14,4 +14,6 @@ type Main @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
 	text: String
 	email: String
 	name: String
+  createdOn: String
+  updatedOn: String
 }

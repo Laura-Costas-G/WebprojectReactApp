@@ -11,7 +11,7 @@ const Message = (props) => {
           <Avatar alt="User profile" src="" sx={{ width: 50, height: 50 }} className="status-img" />
           <div className="album-detail">
             <div className="album-title"><strong>{props.data.author}</strong></div>
-            <div className="album-date">{new Date(parseInt(props.data.createdAt)).toString()}</div>
+            <div className="album-date">{new Date(parseInt(props.data.createdOn)).toString()}</div>
           </div>
           <button className="intro-menu"></button>
         </div>

@@ -9,7 +9,7 @@ const StatusForm = () => {
     const text = useRef()
 
     const handleSubmit = () => {
-        msgs.postMsg(status.session.sub, text.current.value)
+        msgs.postMsg(text.current.value)
     } 
 
     return (
