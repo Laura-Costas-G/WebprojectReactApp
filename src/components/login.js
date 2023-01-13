@@ -10,7 +10,7 @@ const Login = () => {
     const email = useRef()
 
     const handleClick = (event) => {
-        event.preventDefault()
+        //event.preventDefault()
         state.login(email.current.value, password.current.value)
     }
 

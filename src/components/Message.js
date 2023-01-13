@@ -1,8 +1,10 @@
 import { ChatBubbleOutline, FavoriteBorderOutlined, Reply, Share } from "@mui/icons-material"
 import { Avatar, IconButton } from "@mui/material"
+import useMsgsStore from "../stores/msgs"
 
 const Message = (props) => {
-  console.info(props.data)
+  const msgs = useMsgsStore()
+
     return (
         <div className="album box">
         <div className="status-main">

@@ -12,7 +12,27 @@ const useMsgsStore = create(
             (set, get) => ({
                 // messages
                 msgs: {},
-
+                // get users
+                getUser: async (id) => {
+                    try{
+                        const res = await API.graphql({ 
+                            query: queries.listMains, 
+                            variables: { 
+                                filter: {
+                                    type: { 
+                                        eq: "USER"
+                                    }, 
+                                    id: {
+                                        eq: id
+                                    }
+                                } 
+                            }
+                        });
+                        return await res.value
+                    }catch(e){
+                        console.warn(e.message)
+                    }
+                },
                 // get messages
                 getMsgs: async () => {
                     try{

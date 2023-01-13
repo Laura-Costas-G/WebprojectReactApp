@@ -15,7 +15,8 @@ const Board = () => {
   const msgs = useMsgsStore()
 
   useEffect(() => {
-    msgs.getMsgs()
+    let i = setInterval(()=>msgs.getMsgs(), 5000)
+    return () => clearInterval(i)
   },[])
 
   return (
