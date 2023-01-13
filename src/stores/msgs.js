@@ -13,45 +13,25 @@ const useMsgsStore = create(
             (set, get) => ({
                 // messages
                 msgs: {},
-                // get users
-                getUser: async (id) => {
-                    try{
-                        const res = await API.graphql({ 
-                            query: queries.listMains, 
-                            variables: { 
-                                filter: {
-                                    type: { 
-                                        eq: "USER"
-                                    }, 
-                                    id: {
-                                        eq: id
-                                    }
-                                } 
-                            }
-                        });
-                        return await res.value
-                    }catch(e){
-                        console.warn("MsgsStore: "+e.message)
-                        return null
-                    }
-                },
+                
                 // get messages
                 getMsgs: async () => {
                     try{
                         const res = await API.graphql({ 
-                            query: queries.listMains, 
+                            query: queries.listMsgs, 
                             variables: { 
-                                filter: {
+                                /*filter: {
                                     type: { 
                                         eq: "MSG"
                                     }, 
                                     /*id: {
                                         beginsWith: "MSG"
-                                    }*/
-                                } 
+                                    }
+                                }*/
                             }
                         });
                         set({msgs: await res.data})
+                        console.info(get().msgs.listMsgs.items)
                         return get().msgs
                     }catch(e){
                         console.warn(e.message)
@@ -60,12 +40,11 @@ const useMsgsStore = create(
                 // send message
                 postMsg: async (text) => {
                     const res = await API.graphql({ 
-                        query: mutations.createMain, 
+                        query: mutations.createMsg, 
                         variables: {
                             input: {
-                                type: "MSG",
+                                authorID: useUserStore.getState().session.sub,
                                 id: ulid()+"",
-                                author: useUserStore.getState().session.name || useUserStore.getState().session.email,
                                 text: text
                             }
                         }

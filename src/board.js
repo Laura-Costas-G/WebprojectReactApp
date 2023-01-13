@@ -38,7 +38,7 @@ const Board = () => {
             <div className="timeline-main">
               {status.session.sub ? <StatusForm/> : null}
               {/** timeline */}
-              {msgs.msgs.listMains ? msgs.msgs.listMains.items.sort((a,b) => parseInt(a.createdAt) < parseInt(b.createdAt)).map((item, index) => <Message data={item} key={index}/>) : <p>Error while fetching posts</p>}
+              {msgs.msgs.listMsgs ? msgs.msgs.listMsgs.items.sort((a,b) => parseInt(a.createdAt) < parseInt(b.createdAt)).map((item, index) => <Message data={item} key={index}/>) : <p>Error while fetching posts</p>}
             </div>
           </div>
         </div>

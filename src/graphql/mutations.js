@@ -1,62 +1,461 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createMain = /* GraphQL */ `
-  mutation CreateMain(
-    $input: CreateMainInput!
-    $condition: ModelMainConditionInput
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    createMain(input: $input, condition: $condition) {
-      GSIPK
-      GSISK
+    createUser(input: $input, condition: $condition) {
       id
-      type
-      author
-      text
+      Partition
       email
       name
       createdOn
       updatedOn
+      messages {
+        items {
+          id
+          authorPartition
+          authorID
+          text
+          createdOn
+          updatedOn
+          userMessagesPartition
+          userMessagesId
+          owner
+        }
+        nextToken
+      }
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
       owner
     }
   }
 `;
-export const updateMain = /* GraphQL */ `
-  mutation UpdateMain(
-    $input: UpdateMainInput!
-    $condition: ModelMainConditionInput
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    updateMain(input: $input, condition: $condition) {
-      GSIPK
-      GSISK
+    updateUser(input: $input, condition: $condition) {
       id
-      type
-      author
-      text
+      Partition
       email
       name
       createdOn
       updatedOn
+      messages {
+        items {
+          id
+          authorPartition
+          authorID
+          text
+          createdOn
+          updatedOn
+          userMessagesPartition
+          userMessagesId
+          owner
+        }
+        nextToken
+      }
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
       owner
     }
   }
 `;
-export const deleteMain = /* GraphQL */ `
-  mutation DeleteMain(
-    $input: DeleteMainInput!
-    $condition: ModelMainConditionInput
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    deleteMain(input: $input, condition: $condition) {
-      GSIPK
-      GSISK
+    deleteUser(input: $input, condition: $condition) {
       id
-      type
-      author
-      text
+      Partition
       email
       name
       createdOn
       updatedOn
+      messages {
+        items {
+          id
+          authorPartition
+          authorID
+          text
+          createdOn
+          updatedOn
+          userMessagesPartition
+          userMessagesId
+          owner
+        }
+        nextToken
+      }
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
+      owner
+    }
+  }
+`;
+export const createMsg = /* GraphQL */ `
+  mutation CreateMsg(
+    $input: CreateMsgInput!
+    $condition: ModelMsgConditionInput
+  ) {
+    createMsg(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
+      userMessagesPartition
+      userMessagesId
+      owner
+    }
+  }
+`;
+export const updateMsg = /* GraphQL */ `
+  mutation UpdateMsg(
+    $input: UpdateMsgInput!
+    $condition: ModelMsgConditionInput
+  ) {
+    updateMsg(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
+      userMessagesPartition
+      userMessagesId
+      owner
+    }
+  }
+`;
+export const deleteMsg = /* GraphQL */ `
+  mutation DeleteMsg(
+    $input: DeleteMsgInput!
+    $condition: ModelMsgConditionInput
+  ) {
+    deleteMsg(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      comments {
+        items {
+          id
+          authorPartition
+          authorID
+          msgAutorID
+          messageID
+          text
+          createdOn
+          updatedOn
+          msgCommentsAuthorID
+          msgCommentsId
+          owner
+        }
+        nextToken
+      }
+      userMessagesPartition
+      userMessagesId
+      owner
+    }
+  }
+`;
+export const createCom = /* GraphQL */ `
+  mutation CreateCom(
+    $input: CreateComInput!
+    $condition: ModelComConditionInput
+  ) {
+    createCom(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      msgAutorID
+      messageID
+      message {
+        id
+        authorPartition
+        authorID
+        author {
+          id
+          Partition
+          email
+          name
+          createdOn
+          updatedOn
+          owner
+        }
+        text
+        createdOn
+        updatedOn
+        comments {
+          nextToken
+        }
+        userMessagesPartition
+        userMessagesId
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      msgCommentsAuthorID
+      msgCommentsId
+      owner
+    }
+  }
+`;
+export const updateCom = /* GraphQL */ `
+  mutation UpdateCom(
+    $input: UpdateComInput!
+    $condition: ModelComConditionInput
+  ) {
+    updateCom(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      msgAutorID
+      messageID
+      message {
+        id
+        authorPartition
+        authorID
+        author {
+          id
+          Partition
+          email
+          name
+          createdOn
+          updatedOn
+          owner
+        }
+        text
+        createdOn
+        updatedOn
+        comments {
+          nextToken
+        }
+        userMessagesPartition
+        userMessagesId
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      msgCommentsAuthorID
+      msgCommentsId
+      owner
+    }
+  }
+`;
+export const deleteCom = /* GraphQL */ `
+  mutation DeleteCom(
+    $input: DeleteComInput!
+    $condition: ModelComConditionInput
+  ) {
+    deleteCom(input: $input, condition: $condition) {
+      id
+      authorPartition
+      authorID
+      author {
+        id
+        Partition
+        email
+        name
+        createdOn
+        updatedOn
+        messages {
+          nextToken
+        }
+        comments {
+          nextToken
+        }
+        owner
+      }
+      msgAutorID
+      messageID
+      message {
+        id
+        authorPartition
+        authorID
+        author {
+          id
+          Partition
+          email
+          name
+          createdOn
+          updatedOn
+          owner
+        }
+        text
+        createdOn
+        updatedOn
+        comments {
+          nextToken
+        }
+        userMessagesPartition
+        userMessagesId
+        owner
+      }
+      text
+      createdOn
+      updatedOn
+      msgCommentsAuthorID
+      msgCommentsId
       owner
     }
   }
