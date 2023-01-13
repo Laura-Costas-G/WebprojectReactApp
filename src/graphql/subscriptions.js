@@ -2,8 +2,11 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateMain = /* GraphQL */ `
-  subscription OnCreateMain($filter: ModelSubscriptionMainFilterInput) {
-    onCreateMain(filter: $filter) {
+  subscription OnCreateMain(
+    $filter: ModelSubscriptionMainFilterInput
+    $owner: String
+  ) {
+    onCreateMain(filter: $filter, owner: $owner) {
       GSIPK
       GSISK
       id
@@ -14,12 +17,16 @@ export const onCreateMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;
 export const onUpdateMain = /* GraphQL */ `
-  subscription OnUpdateMain($filter: ModelSubscriptionMainFilterInput) {
-    onUpdateMain(filter: $filter) {
+  subscription OnUpdateMain(
+    $filter: ModelSubscriptionMainFilterInput
+    $owner: String
+  ) {
+    onUpdateMain(filter: $filter, owner: $owner) {
       GSIPK
       GSISK
       id
@@ -30,12 +37,16 @@ export const onUpdateMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;
 export const onDeleteMain = /* GraphQL */ `
-  subscription OnDeleteMain($filter: ModelSubscriptionMainFilterInput) {
-    onDeleteMain(filter: $filter) {
+  subscription OnDeleteMain(
+    $filter: ModelSubscriptionMainFilterInput
+    $owner: String
+  ) {
+    onDeleteMain(filter: $filter, owner: $owner) {
       GSIPK
       GSISK
       id
@@ -46,6 +57,7 @@ export const onDeleteMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;

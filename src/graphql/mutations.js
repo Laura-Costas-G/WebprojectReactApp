@@ -17,6 +17,7 @@ export const createMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;
@@ -36,6 +37,7 @@ export const updateMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;
@@ -55,6 +57,7 @@ export const deleteMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;

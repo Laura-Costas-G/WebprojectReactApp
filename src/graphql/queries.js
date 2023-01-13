@@ -14,6 +14,7 @@ export const getMain = /* GraphQL */ `
       name
       createdOn
       updatedOn
+      owner
     }
   }
 `;
@@ -45,6 +46,7 @@ export const listMains = /* GraphQL */ `
         name
         createdOn
         updatedOn
+        owner
       }
       nextToken
     }
