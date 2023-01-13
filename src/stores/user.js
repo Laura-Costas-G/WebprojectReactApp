@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware'
 import themes from "../styles/themes"
-//import { Auth } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 
 // session store with redux devtools log
 const useUserStore = create(
@@ -16,7 +16,7 @@ const useUserStore = create(
                 temp: {},
                 // local user preferences
                 prefs: {theme: themes.dark, color: false},
-                /*
+
                 // get the current authentificated user in cognito
                 getUser: async () => {
                     const res = await Auth.currentAuthenticatedUser()
@@ -52,6 +52,7 @@ const useUserStore = create(
                 },
                 // sign up function
                 signup: async (email, password, name) => {
+                    name = name || ""
                     const res = await Auth.signUp({
                         username: email.toLowerCase(),
                         password,
@@ -77,7 +78,7 @@ const useUserStore = create(
                 },
                 // change password function
                 changePasswd: async (oldPassword, newPassword) => {
-                    const res = await changePassword(get().user, oldPassword, newPassword)
+                    const res = await Auth.changePassword(get().user, oldPassword, newPassword)
                 },
                 // get trusted devices for user
                 fetchDevices: async () => {
@@ -94,13 +95,12 @@ const useUserStore = create(
                 },
                 // initiate the forgot password request
                 forgotPassword: async (email) => {
-                    const res = await Auth.forgotPassword(Email)
+                    const res = await Auth.forgotPassword(email)
                 },
                 // submit new password
                 forgotPasswordSubmit: async (email, password, code) => {
                     const res = await Auth.forgotPasswordSubmit(email, code, password)
                 },
-                */
 /* -------------------------------------------------------------------------- */
             }),
             {

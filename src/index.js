@@ -4,13 +4,10 @@ import App from './App';
 
 import { ThemeProvider } from '@mui/material';
 import * as themes from "./styles/themes"
-import Board from './board';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <ThemeProvider theme={themes.dark}>
-      <Board />
+      <App />
     </ThemeProvider>
-  </React.StrictMode>
 );

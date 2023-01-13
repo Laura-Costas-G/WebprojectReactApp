@@ -1,0 +1,16 @@
+{
+  "resourceName": "userData",
+  "policyUUID": "d579f495",
+  "bucketName": "webprojectuserdataboopedby",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

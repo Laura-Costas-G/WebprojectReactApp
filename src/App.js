@@ -1,14 +1,23 @@
-import { Container, Paper } from "@mui/material";
-import MessageButtons from "./MessageButtons"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Board from './board';
+
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Board />,
+    errorElement: <Board />,
+  },
+]);
 
 function App() {
   return (
-    <Container maxWidth="sm">
-      <Paper>
-        <MessageButtons/>
-      </Paper>
-    </Container>
-  );
+    <RouterProvider router={router} />
+  )
 }
 
 export default App;
