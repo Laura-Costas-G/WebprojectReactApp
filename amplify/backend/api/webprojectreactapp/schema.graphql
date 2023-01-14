@@ -5,10 +5,11 @@
 type User @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" }) 
   @auth(rules: [
   { allow: public, operations: [read], provider: iam },
-  { allow: owner, operations: [read], provider: userPools },
+  { allow: private, operations: [read], provider: userPools },
+  { allow: owner, operations: [read, update], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!
-	Partition: ID!  @primaryKey(sortKeyFields: ["id"])
+	Partition: ID! @primaryKey(sortKeyFields: ["id"])
 	email: String! @index(name: "ByMail", sortKeyFields: ["id"])
 	name: String!
   createdOn: String
@@ -20,6 +21,7 @@ type User @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
 type Msg @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" }) 
   @auth(rules: [
   { allow: public, operations: [read], provider: iam },
+  { allow: private, operations: [read], provider: userPools },
   { allow: owner, operations: [create, read, delete], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!  
@@ -35,6 +37,7 @@ type Msg @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
 type Com @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" }) 
   @auth(rules: [
   { allow: public, operations: [read], provider: iam },
+  { allow: private, operations: [read], provider: userPools },
   { allow: owner, operations: [create, read, delete], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!  

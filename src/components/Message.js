@@ -1,6 +1,6 @@
 import { ChatBubbleOutline, FavoriteBorderOutlined, Reply, Share } from "@mui/icons-material"
 import { Avatar, IconButton } from "@mui/material"
-import useMsgsStore from "../stores/msgs"
+import useMsgsStore from "../stores/aws"
 
 const Message = (props) => {
   const msgs = useMsgsStore()
@@ -10,7 +10,7 @@ const Message = (props) => {
         <div className="status-main">
           <Avatar alt="User profile" src="" sx={{ width: 50, height: 50 }} className="status-img" />
           <div className="album-detail">
-            <div className="album-title"><strong>{props.data.author}</strong></div>
+            <div className="album-title"><strong>{props.data.author.name || props.data.author.email}</strong></div>
             <div className="album-date">{props.data.createdOn.substring(0,16).replace("T", " ")}</div>
           </div>
           <button className="intro-menu"></button>

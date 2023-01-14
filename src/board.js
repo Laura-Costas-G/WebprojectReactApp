@@ -6,7 +6,7 @@ import Profile from "./components/Profile"
 import Message from "./components/Message";
 import StatusForm from "./components/StatusForm";
 import useUserStore from "./stores/user";
-import useMsgsStore from "./stores/msgs";
+import useMsgsStore from "./stores/aws";
 
 import Login from "./components/login"
 

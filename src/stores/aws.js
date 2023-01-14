@@ -11,9 +11,27 @@ const useMsgsStore = create(
     devtools(
         persist(
             (set, get) => ({
+                // user
+                user: {},
                 // messages
                 msgs: {},
                 
+                // get user
+                getUser: async () => {
+                    try{
+                        const res = await API.graphql({ 
+                            query: queries.getUser, 
+                            variables: { 
+                                Partition: "0",
+                                id: useUserStore.getState().session.sub
+                            }
+                        });
+                        set({user: await res.data})
+                        return get().user
+                    }catch(e){
+                        console.warn(e)
+                    }
+                },
                 // get messages
                 getMsgs: async () => {
                     try{
@@ -31,7 +49,6 @@ const useMsgsStore = create(
                             }
                         });
                         set({msgs: await res.data})
-                        console.info(get().msgs.listMsgs.items)
                         return get().msgs
                     }catch(e){
                         console.warn(e.message)
@@ -43,6 +60,7 @@ const useMsgsStore = create(
                         query: mutations.createMsg, 
                         variables: {
                             input: {
+                                authorPartition: get().user.getUser.Partition,
                                 authorID: useUserStore.getState().session.sub,
                                 id: ulid()+"",
                                 text: text

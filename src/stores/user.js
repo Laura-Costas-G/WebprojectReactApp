@@ -2,6 +2,7 @@ import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware'
 import themes from "../styles/themes"
 import { Auth } from 'aws-amplify';
+import useMsgsStore from './aws';
 
 // session store with redux devtools log
 const useUserStore = create(
@@ -34,11 +35,13 @@ const useUserStore = create(
                     if(res.challengeName === 'NEW_PASSWORD_REQUIRED')
                         Auth.completeNewPassword(res, password);
                     set({user: await res, session: await res.attributes})
+                    useMsgsStore.getState().getUser()
                 },
                 // log out function
                 logout: async () => {
                     const res = await Auth.signOut()
                     set({user: {}, session: {}})
+                    useMsgsStore.setState({user: {}})
                 },
                 // log out every device
                 logoutGlobal: async () => {

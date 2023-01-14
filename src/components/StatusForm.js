@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material"
 import { useRef } from "react"
-import useMsgsStore from "../stores/msgs"
+import useMsgsStore from "../stores/aws"
 import useUserStore from "../stores/user"
 
 const StatusForm = () => {
