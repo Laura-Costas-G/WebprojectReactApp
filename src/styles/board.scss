@@ -552,12 +552,16 @@ body {
 }
 
 .status-textarea {
+ font-family: "Source Sans Pro", sans-serif;
+ font-size: medium;
+ padding-left: 5px;
+ font-weight: 400;
  flex-grow: 1;
  background-color: transparent;
  border: none;
  resize: none;
  margin-top: 15px;
- color: #fff;
+ color: $button;
  max-width: calc(100% - 70px);
  &::placeholder {
   color: #5c5d71;
