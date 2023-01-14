@@ -9,12 +9,15 @@ type User @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
   { allow: owner, operations: [read, update], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!
+
 	Partition: ID! @primaryKey(sortKeyFields: ["id"])
 	email: String! @index(name: "ByMail", sortKeyFields: ["id"])
 	name: String!
   createdOn: String
   updatedOn: String
-  messages: [Msg] @hasMany
+
+  messages: [Msg] @hasMany(fields: ["Partition","id"])
+
   comments: [Com] @hasMany(indexName: "ComByAuthor", fields: ["Partition","id"])
 }
 
@@ -25,13 +28,16 @@ type Msg @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
   { allow: owner, operations: [create, read, delete], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!  
+
   authorPartition: ID!
   authorID: ID! @primaryKey(sortKeyFields: ["id"])
 	author: User @belongsTo(fields: ["authorPartition","authorID"])
+
 	text: String
   createdOn: String
   updatedOn: String
-  comments: [Com] @hasMany
+
+  comments: [Com] @hasMany(fields: ["authorID","id"])
 }
 
 type Com @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" }) 
@@ -41,12 +47,15 @@ type Com @model(timestamps: { createdAt: "createdOn", updatedAt: "updatedOn" })
   { allow: owner, operations: [create, read, delete], provider: userPools },
   { allow: groups, groups: ["Admin"], provider: userPools }]) {
 	id: ID!  
+
   authorPartition: ID!
-  authorID: ID! @index(name: "ComByAuthor", sortKeyFields: ["messageID"])
+  authorID: ID! @index(name: "ComByAuthor", sortKeyFields: ["id"])
 	author: User @belongsTo(fields: ["authorPartition","authorID"])
+
   msgAutorID: ID!
   messageID: ID! @primaryKey(sortKeyFields: ["id"])
   message: Msg @belongsTo(fields: ["msgAutorID","messageID"])
+
 	text: String
   createdOn: String
   updatedOn: String

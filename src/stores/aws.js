@@ -5,6 +5,7 @@ import { ulid } from 'ulid'
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware'
 import useUserStore from './user';
+import { PropaneSharp } from '@mui/icons-material';
 
 // session store with redux devtools log
 const useMsgsStore = create(
@@ -67,6 +68,41 @@ const useMsgsStore = create(
                             }
                         }
                     })
+                },
+                // get comments from message
+                getComs: async (msgdata) => {
+                    try{
+                        const res = await API.graphql({ 
+                            query: queries.listComs, 
+                            variables: { 
+                                filter: {
+                                    messageID: { 
+                                        eq: msgdata.id
+                                    }
+                                }
+                            }
+                        });
+                        return res
+                    }catch(e){
+                        console.warn(e.message)
+                    }
+                },
+                // send comment
+                postCom: async (msgdata, text) => {
+                    const res = await API.graphql({ 
+                        query: mutations.createCom, 
+                        variables: {
+                            input: {
+                                id: ulid(),
+                                authorPartition: get().user.getUser.Partition,
+                                authorID: get().user.getUser.id,
+                                msgAutorID: msgdata.authorID,
+                                messageID: msgdata.id,
+                                text: text
+                            }
+                        }
+                    })
+                    return res
                 }
 /* -------------------------------------------------------------------------- */
             }),

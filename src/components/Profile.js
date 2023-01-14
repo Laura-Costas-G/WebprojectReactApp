@@ -18,7 +18,7 @@ const Profile = () => {
               <div className="profile-name">{name}</div>
             </div>
             {/** banner */}
-            <img src="https://images.unsplash.com/photo-1508247967583-7d982ea01526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" className="profile-cover" />
+            <img src="/photobg.webp" alt="" className="profile-cover" />
             <div className="profile-menu">
               <a className="profile-menu-link active">Timeline</a>
               <a className="profile-menu-link">About</a>

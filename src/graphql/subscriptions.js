@@ -21,8 +21,6 @@ export const onCreateUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         nextToken
@@ -37,8 +35,6 @@ export const onCreateUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
@@ -67,8 +63,6 @@ export const onUpdateUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         nextToken
@@ -83,8 +77,6 @@ export const onUpdateUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
@@ -113,8 +105,6 @@ export const onDeleteUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         nextToken
@@ -129,8 +119,6 @@ export const onDeleteUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
@@ -176,14 +164,10 @@ export const onCreateMsg = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
       }
-      userMessagesPartition
-      userMessagesId
       owner
     }
   }
@@ -225,14 +209,10 @@ export const onUpdateMsg = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
       }
-      userMessagesPartition
-      userMessagesId
       owner
     }
   }
@@ -274,14 +254,10 @@ export const onDeleteMsg = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
       }
-      userMessagesPartition
-      userMessagesId
       owner
     }
   }
@@ -331,15 +307,11 @@ export const onCreateCom = /* GraphQL */ `
         comments {
           nextToken
         }
-        userMessagesPartition
-        userMessagesId
         owner
       }
       text
       createdOn
       updatedOn
-      msgCommentsAuthorID
-      msgCommentsId
       owner
     }
   }
@@ -389,15 +361,11 @@ export const onUpdateCom = /* GraphQL */ `
         comments {
           nextToken
         }
-        userMessagesPartition
-        userMessagesId
         owner
       }
       text
       createdOn
       updatedOn
-      msgCommentsAuthorID
-      msgCommentsId
       owner
     }
   }
@@ -447,15 +415,11 @@ export const onDeleteCom = /* GraphQL */ `
         comments {
           nextToken
         }
-        userMessagesPartition
-        userMessagesId
         owner
       }
       text
       createdOn
       updatedOn
-      msgCommentsAuthorID
-      msgCommentsId
       owner
     }
   }

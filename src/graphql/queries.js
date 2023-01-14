@@ -18,8 +18,6 @@ export const getUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         nextToken
@@ -34,8 +32,6 @@ export const getUser = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
@@ -150,14 +146,10 @@ export const getMsg = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          msgCommentsAuthorID
-          msgCommentsId
           owner
         }
         nextToken
       }
-      userMessagesPartition
-      userMessagesId
       owner
     }
   }
@@ -198,8 +190,6 @@ export const listMsgs = /* GraphQL */ `
         comments {
           nextToken
         }
-        userMessagesPartition
-        userMessagesId
         owner
       }
       nextToken
@@ -248,15 +238,11 @@ export const getCom = /* GraphQL */ `
         comments {
           nextToken
         }
-        userMessagesPartition
-        userMessagesId
         owner
       }
       text
       createdOn
       updatedOn
-      msgCommentsAuthorID
-      msgCommentsId
       owner
     }
   }
@@ -300,33 +286,29 @@ export const listComs = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         text
         createdOn
         updatedOn
-        msgCommentsAuthorID
-        msgCommentsId
         owner
       }
       nextToken
     }
   }
 `;
-export const comsByAuthorIDAndMessageID = /* GraphQL */ `
-  query ComsByAuthorIDAndMessageID(
+export const comsByAuthorIDAndId = /* GraphQL */ `
+  query ComsByAuthorIDAndId(
     $authorID: ID!
-    $messageID: ModelIDKeyConditionInput
+    $id: ModelIDKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelComFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    comsByAuthorIDAndMessageID(
+    comsByAuthorIDAndId(
       authorID: $authorID
-      messageID: $messageID
+      id: $id
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -354,15 +336,11 @@ export const comsByAuthorIDAndMessageID = /* GraphQL */ `
           text
           createdOn
           updatedOn
-          userMessagesPartition
-          userMessagesId
           owner
         }
         text
         createdOn
         updatedOn
-        msgCommentsAuthorID
-        msgCommentsId
         owner
       }
       nextToken
