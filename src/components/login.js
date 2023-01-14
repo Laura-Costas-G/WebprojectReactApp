@@ -1,13 +1,17 @@
-import { Button, ButtonBase, Modal } from "@mui/material"
+import { Alert, Button, ButtonBase, Modal, Snackbar } from "@mui/material"
 import { useRef, useState } from "react"
 import useUserStore from "../stores/user"
 import style from "../styles/login.css"
+
+const type = ["success", "info", "warning", "error"]
 
 const Login = () => {
     const state = useUserStore((state) => state,
         (old, news) => old.session.sub === news.session.sub)
 
     const [isSignUp, setSignUp] = useState(false)
+
+    const [toast, setToast] = useState({ type: type[1], message: "info message", open: false})
 
     const password = useRef()
     const email = useRef()
@@ -16,22 +20,31 @@ const Login = () => {
 
     const handleClick = (event) => {
         event.preventDefault()
+        try{
         !isSignUp ?
-            state.login(email.current.value, password.current.value)
+            state.login(email.current.value, password.current.value).catch((e) => {
+                setToast({open: true, message: e.message, type: type[3]})
+            })
             :
-            state.signup(email.current.value, password.current.value, name.current.value)
+            state.signup(email.current.value, password.current.value, name.current.value).then((value) => {
+                setToast({ type: type[1], message: "A verification code has been sent to the provided email", open: true})
+            })
+        }catch(e){
+            setToast({open: true, message: e.message, type: type[3]})
+        }
     }
 
     const handleCode = async (event) => {
         event.preventDefault()
         const res = await state.confirmSignUp(email.current.value, code.current.value)
-        console.info(res)
         if(res === "SUCCESS") {
             state.login(email.current.value, password.current.value)
+            setToast({open: true, message: "Verification succesful", type: type[0]})
         }
     }
 
     return (
+        <>
         <Modal
             open={!state.session.sub}
             aria-labelledby="modal-title"
@@ -91,6 +104,12 @@ const Login = () => {
             </div>
             }
         </Modal>
+        <Snackbar open={toast.open} autoHideDuration={6000} onClose={() => setToast({open: false})}>
+            <Alert severity={toast.type} sx={{ width: '100%' }}>
+                {toast.message}
+            </Alert>
+        </Snackbar>
+        </>
     )
 }
 
